@@ -81,77 +81,70 @@
 				<div id="main-content">
 					<div class="wrap-content">
 						<div class="zerogrid">
-							<div class="row">
+							<div class="row" id="gallery">
                 <!-- 111111111111111111111111111 -->
 								<div class="col-1-3">
 									<div class="wrap-col">
-										<a class="portfolio-box zoom-effect">
-											<img src="https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face/%E6%89%80%E7%BD%97%E9%97%A8%E7%9A%84%E5%BE%8B%E6%B3%95.png" class="img-responsive" alt="">
-											<div class="portfolio-box-caption">
-												<div class="portfolio-box-caption-content">
-													<div class="project-name">
-														<span>#所罗门的律法</span>
-                          </div>
-                          <div class="project-name">
-														<span>5*88</span>
-													</div>
-												</div>
-											</div>
-                    </a>
-                    
-                    <a class="portfolio-box zoom-effect">
-                        <img src="https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face/%E5%B9%B4%E8%BD%AE.png" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                          <div class="portfolio-box-caption-content">
-                            <div class="project-name">
-                              <span>#年轮</span>
-                            </div>
-                            <div class="project-name">
-                              <span>5*58</span>
-                            </div>
-                          </div>
-                        </div>
-                      </a>
-                        
+												
+											<template v-for="item in first_col">
+													<a class="portfolio-box zoom-effect">
+															<img :src="item.face_img" class="img-responsive" alt="">
+															<div class="portfolio-box-caption">
+																<div class="portfolio-box-caption-content">
+																	<div class="project-name">
+																		<span>#{{ item.name }}</span>
+																	</div>
+																	<div class="project-name">
+																		<span>{{ item.players }}*{{ item.price }}</span>
+																	</div>
+																</div>
+															</div>
+														</a>
+											</template>
+
 									</div>
                 </div>
                 <!-- 222222222222222222222222222222222 -->
                 <div class="col-1-3">
                     <div class="wrap-col">
-                      
-                      <a class="portfolio-box zoom-effect">
-                          <img src="https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face/%E7%AA%A5%E9%95%9C.jpg" class="img-responsive" alt="">
-                          <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                              <div class="project-name">
-                                <span>#窥镜</span>
-                              </div>
-                              <div class="project-name">
-                                <span>4*58</span>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
+
+												<template v-for="item in second_col">
+														<a class="portfolio-box zoom-effect">
+																<img :src="item.face_img" class="img-responsive" alt="">
+																<div class="portfolio-box-caption">
+																	<div class="portfolio-box-caption-content">
+																		<div class="project-name">
+																			<span>#{{ item.name }}</span>
+																		</div>
+																		<div class="project-name">
+																			<span>{{ item.players }}*{{ item.price }}</span>
+																		</div>
+																	</div>
+																</div>
+															</a>
+												</template>
                           
                     </div>
                   </div>
                   <!-- 333333333333333333333333333333333 -->
                   <div class="col-1-3">
                       <div class="wrap-col">
-                        <a class="portfolio-box zoom-effect">
-                          <img src="https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face/%E7%BA%AF%E6%83%85%E5%A4%AA%E7%9B%91%E4%BF%8F%E7%9A%87%E5%B8%9D.jpg" class="img-responsive" alt="">
-                          <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                              <div class="project-name">
-                                <span>#纯情太监俏皇帝</span>
-                              </div>
-                              <div class="project-name">
-                                <span>5*58</span>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                        
+
+													<template v-for="item in third_col">
+															<a class="portfolio-box zoom-effect">
+																	<img :src="item.face_img" class="img-responsive" alt="">
+																	<div class="portfolio-box-caption">
+																		<div class="portfolio-box-caption-content">
+																			<div class="project-name">
+																				<span>#{{ item.name }}</span>
+																			</div>
+																			<div class="project-name">
+																				<span>{{ item.players }}*{{ item.price }}</span>
+																			</div>
+																		</div>
+																	</div>
+																</a>
+													</template>
                             
                       </div>
                     </div>
@@ -189,6 +182,44 @@
 			pagination: false
 		  });
 		});
+		</script>
+		<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+		<script>
+			var gallery = new Vue({
+				el: '#gallery',
+				data: {
+					first_col: [
+						{
+							face_img: 'https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face/%E6%89%80%E7%BD%97%E9%97%A8%E7%9A%84%E5%BE%8B%E6%B3%95.png',
+							name: '所罗门的律法',
+							players: '5',
+							price: '88'
+						},
+						{
+							face_img: 'https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face/%E5%B9%B4%E8%BD%AE.png',
+							name: '年轮',
+							players: '5',
+							price: '58'
+						}
+					],
+					second_col: [
+						{
+							face_img: 'https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face/%E7%AA%A5%E9%95%9C.jpg',
+							name: '窥镜',
+							players: '4',
+							price: '58'
+						}
+					],
+					third_col: [
+						{
+							face_img: 'https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face/%E7%BA%AF%E6%83%85%E5%A4%AA%E7%9B%91%E4%BF%8F%E7%9A%87%E5%B8%9D.jpg',
+							name: '纯情太监俏皇帝',
+							players: '5',
+							price: '58'
+						}
+					]
+				}
+			})
 		</script>
 	</div>
 </body>
