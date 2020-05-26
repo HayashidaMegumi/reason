@@ -43,11 +43,17 @@
 		<script src="js/html5.js"></script>
 		<script src="js/css3-mediaqueries.js"></script>
 	<![endif]-->
+	<link href="https://cdn.bootcdn.net/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.css" rel="stylesheet">
 	<style>
 		.has-sub ul li {
 			max-width: 137px;
 		}
-  </style>
+		#cssmenu {
+			z-index: 20;
+		}
+	</style>
+			<script src="https://cdn.bootcdn.net/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.js"></script>
+
 </head>
 
 <body>
@@ -96,7 +102,7 @@
 									<div class="wrap-col">
 												
 											<template v-for="item in first_col">
-													<a class="portfolio-box zoom-effect">
+													<a @click="showinfo(item.name,item.type,item.feature,item.background,item.face_img)" class="portfolio-box zoom-effect">
 															<img :src="item.face_img" class="img-responsive" alt="">
 															<div class="portfolio-box-caption">
 																<div class="portfolio-box-caption-content">
@@ -118,7 +124,7 @@
                     <div class="wrap-col">
 
 												<template v-for="item in second_col">
-														<a class="portfolio-box zoom-effect">
+														<a @click="showinfo(item.name,item.type,item.feature,item.background,item.face_img)" class="portfolio-box zoom-effect">
 																<img :src="item.face_img" class="img-responsive" alt="">
 																<div class="portfolio-box-caption">
 																	<div class="portfolio-box-caption-content">
@@ -140,7 +146,7 @@
                       <div class="wrap-col">
 
 													<template v-for="item in third_col">
-															<a class="portfolio-box zoom-effect">
+															<a @click="showinfo(item.name,item.type,item.feature,item.background,item.face_img)" class="portfolio-box zoom-effect">
 																	<img :src="item.face_img" class="img-responsive" alt="">
 																	<div class="portfolio-box-caption">
 																		<div class="portfolio-box-caption-content">
@@ -202,25 +208,37 @@
 							face_img: 'https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face/%E8%89%AF%E8%BE%B0%E5%90%89%E6%97%A5.png',
 							name: '良辰吉日',
 							players: '8',
-							price: '58'
+							price: '58',
+							background: '',
+							type: '',
+							feature:''
 						},
 						{
 							face_img: 'https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face/%E6%B2%A7%E6%B5%B7%E9%81%97%E7%8F%A0.jpg',
 							name: '沧海遗珠',
 							players: '8',
-							price: '58'
+							price: '58',
+							background: '',
+							type: '',
+							feature:''
 						},
 						{
 							face_img: 'https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face2/tangxiaheren.jpg',
 							name: '堂下何人',
 							players: '8',
-							price: '58'
+							price: '58',
+							background: '',
+							type: '',
+							feature:''
 						},
 						{
 							face_img: 'https://ccreason.oss-cn-beijing.aliyuncs.com/websource/12432345.jpg',
 							name: '狼人之血',
 							players: '8',
-							price: '58'
+							price: '58',
+							background: '',
+							type: '',
+							feature:''
 						}
 					],
 					second_col: [
@@ -228,25 +246,37 @@
 							face_img: 'https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face/%E9%80%90%E6%A2%A6%E6%BC%94%E8%89%BA%E5%9C%88.jpg',
 							name: '逐梦演艺圈',
 							players: '9-10',
-							price: '58'
+							price: '58',
+							background: '',
+							type: '',
+							feature:''
 						},
 						{
 							face_img: 'https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face2/xungouren.jpg',
 							name: '驯狗人',
 							players: '8',
-							price: '58'
+							price: '58',
+							background: '',
+							type: '',
+							feature:''
 						},
 						{
 							face_img: 'https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face2/pantu.jpg',
 							name: '判途',
 							players: '8',
-							price: '98'
+							price: '98',
+							background: '',
+							type: '',
+							feature:''
 						},
 						{
 							face_img: 'https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face/%E7%99%BE%E5%B9%B4%E5%A5%BD%E5%90%88.jpg',
 							name: '百年好合',
 							players: '8',
-							price: '68'
+							price: '68',
+							background: '',
+							type: '',
+							feature:''
 						}
 					],
 					third_col: [
@@ -254,22 +284,59 @@
 							face_img: 'https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face/%E8%91%AC%E7%88%B1%E5%87%BA%E5%BE%81%20%E5%AF%B8%E8%8D%89%E4%B8%8D%E7%94%9F.jpg',
 							name: '葬爱出征',
 							players: '8',
-							price: '78'
+							price: '78',
+							background: '',
+							type: '',
+							feature:''
 						},
 						{
 							face_img: 'https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face2/gongxinji.jpg',
 							name: '宫心计',
 							players: '9',
-							price: '58'
+							price: '58',
+							background: '',
+							type: '',
+							feature:''
 						},
 						{
 							face_img: 'https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face2/dengxiahei.jpeg',
 							name: '灯下黑',
 							players: '8',
-							price: '98'
+							price: '98',
+							background: '',
+							type: '',
+							feature:''
 						}
 					]
-				}
+				},
+				methods: {
+					showinfo(x,y,z,p,q) {
+						Swal.fire({
+							html:
+							`<br>
+							<h1 style="color: #333;">` + x + `<h1>
+							
+							<br>
+							<div style="display:flex; align-items: center; justify-content: space-between;">
+								<div style="width: 100%;  text-align: left; color: #333;">
+									<h4>类型：</h4>
+									<h5>` + y + `<h5>
+									<br>
+									<h4>特色：</h4>
+									<h5>` + z + `<h5>
+									<br>
+									<h4>简介：</h4>
+									<h5>` + p + `<h5>
+								</div>
+								<img src="` + q + `" width="45%" height="auto" >
+							</div>
+							`,
+							confirmButtonText: '关闭',
+							// background: '#fff url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1590486827412&di=37722becb90d6df4e25e00fa78878ac2&imgtype=0&src=http%3A%2F%2Fdpic.tiankong.com%2Fa5%2F51%2FQJ6273065730.jpg%3Fx-oss-process%3Dstyle%2Fshow)',
+							confirmButtonColor: '#555'
+						});
+					}
+				},
 			})
 		</script>
 	</div>

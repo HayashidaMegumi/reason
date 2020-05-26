@@ -43,11 +43,17 @@
 		<script src="js/html5.js"></script>
 		<script src="js/css3-mediaqueries.js"></script>
 	<![endif]-->
+	<link href="https://cdn.bootcdn.net/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.css" rel="stylesheet">
 	<style>
 		.has-sub ul li {
 			max-width: 137px;
 		}
-  </style>
+		#cssmenu {
+			z-index: 20;
+		}
+	</style>
+			<script src="https://cdn.bootcdn.net/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.js"></script>
+
 </head>
 
 <body>
@@ -96,7 +102,7 @@
 									<div class="wrap-col">
 												
 											<template v-for="item in first_col">
-													<a class="portfolio-box zoom-effect">
+													<a @click="showinfo(item.name,item.type,item.feature,item.background,item.face_img)" class="portfolio-box zoom-effect">
 															<img :src="item.face_img" class="img-responsive" alt="">
 															<div class="portfolio-box-caption">
 																<div class="portfolio-box-caption-content">
@@ -118,7 +124,7 @@
                     <div class="wrap-col">
 
 												<template v-for="item in second_col">
-														<a class="portfolio-box zoom-effect">
+														<a @click="showinfo(item.name,item.type,item.feature,item.background,item.face_img)" class="portfolio-box zoom-effect">
 																<img :src="item.face_img" class="img-responsive" alt="">
 																<div class="portfolio-box-caption">
 																	<div class="portfolio-box-caption-content">
@@ -140,7 +146,7 @@
                       <div class="wrap-col">
 
 													<template v-for="item in third_col">
-															<a class="portfolio-box zoom-effect">
+															<a @click="showinfo(item.name,item.type,item.feature,item.background,item.face_img)" class="portfolio-box zoom-effect">
 																	<img :src="item.face_img" class="img-responsive" alt="">
 																	<div class="portfolio-box-caption">
 																		<div class="portfolio-box-caption-content">
@@ -202,19 +208,28 @@
 							face_img: 'https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face2/xinglai.png',
 							name: '醒来',
 							players: '5',
-							price: '68'
+							price: '68',
+							background: '',
+							type: '',
+							feature:''
 						},
 						{
 							face_img: 'https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face2/baiyin.jpeg',
 							name: '白银',
 							players: '6',
-							price: '68'
+							price: '68',
+							background: '',
+							type: '',
+							feature:''
 						},
 						{
 							face_img: 'https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face2/yushengyetan.jpeg',
 							name: '羽生夜谈',
 							players: '6',
-							price: '68'
+							price: '68',
+							background: '',
+							type: '',
+							feature:''
 						}
             
 					],
@@ -223,19 +238,28 @@
 							face_img: 'https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face/%E5%B1%80.jpg',
 							name: '局',
 							players: '5',
-							price: '68'
+							price: '68',
+							background: '',
+							type: '',
+							feature:''
 						},
 						{
 							face_img: 'https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face/%E7%AA%97%E8%BE%B9%E7%9A%84%E5%A5%B3%E4%BA%BA.jpg',
 							name: '窗边的女人',
 							players: '6',
-							price: '68'
+							price: '68',
+							background: '',
+							type: '',
+							feature:''
 						},
 						{
 							face_img: 'https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face2/%E7%BE%BD%E7%94%9F%E5%A4%9C%E8%B0%882.jpg',
 							name: '羽生夜谈2',
 							players: '6',
-							price: '68'
+							price: '68',
+							background: '',
+							type: '',
+							feature:''
 						}
 						
 						
@@ -245,28 +269,68 @@
 							face_img: 'https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face2/niedaoyiyun.jpg',
 							name: '孽岛疑云',
 							players: '5',
-							price: '68'
+							price: '68',
+							background: '',
+							type: '',
+							feature:''
 						},
 						{
 							face_img: 'https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face2/xueren.jpg',
 							name: '雪人',
 							players: '6',
-							price: '68'
+							price: '68',
+							background: '',
+							type: '',
+							feature:''
 						},
 						{
 							face_img: 'https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face2/dieluodemeigui.jpg',
 							name: '跌落的玫瑰',
 							players: '7',
-							price: '68'
+							price: '68',
+							background: '',
+							type: '',
+							feature:''
 						},
 						{
 							face_img: 'https://ccreason.oss-cn-beijing.aliyuncs.com/websource/face/%E7%99%BE%E5%B9%B4%E5%A5%BD%E5%90%88.jpg',
 							name: '百年好合',
 							players: '8',
-							price: '68'
+							price: '68',
+							background: '',
+							type: '',
+							feature:''
 						}
 					]
-				}
+				},
+				methods: {
+					showinfo(x,y,z,p,q) {
+						Swal.fire({
+							html:
+							`<br>
+							<h1 style="color: #333;">` + x + `<h1>
+							
+							<br>
+							<div style="display:flex; align-items: center; justify-content: space-between;">
+								<div style="width: 100%;  text-align: left; color: #333;">
+									<h4>类型：</h4>
+									<h5>` + y + `<h5>
+									<br>
+									<h4>特色：</h4>
+									<h5>` + z + `<h5>
+									<br>
+									<h4>简介：</h4>
+									<h5>` + p + `<h5>
+								</div>
+								<img src="` + q + `" width="45%" height="auto" >
+							</div>
+							`,
+							confirmButtonText: '关闭',
+							// background: '#fff url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1590486827412&di=37722becb90d6df4e25e00fa78878ac2&imgtype=0&src=http%3A%2F%2Fdpic.tiankong.com%2Fa5%2F51%2FQJ6273065730.jpg%3Fx-oss-process%3Dstyle%2Fshow)',
+							confirmButtonColor: '#555'
+						});
+					}
+				},
 			})
 		</script>
 	</div>
